@@ -1,0 +1,608 @@
+/* --------------------
+   Base Styles
+-------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #222;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --------------------
+   Navigation Bar
+-------------------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.9);
+  color: white;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #00e5ff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.logo:hover {
+  color: #80deea;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #00e5ff;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* --------------------
+   Hero Section
+-------------------- */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to right, #009688, #00bcd4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding-top: 70px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  opacity: 0.15;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeSlideUp 1s ease-out forwards;
+}
+
+.hero-text span {
+  color: #ffe082;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #f1f1f1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  background: #fff;
+  color: #009688;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #004d40;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* --------------------
+   Scroll-down Icon
+-------------------- */
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+}
+
+/* --------------------
+   Footer
+-------------------- */
+footer {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+/* --------------------
+   Animations
+-------------------- */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -10px);
+  }
+  60% {
+    transform: translate(-50%, -5px);
+  }
+}
+
+/* --------------------
+   Responsive Design
+-------------------- */
+@media (max-width: 768px) {
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+/* --------------------
+   About Page Styles
+-------------------- */
+
+/* Hero section (same design as home, different image or overlay) */
+.about-hero {
+  background: linear-gradient(to right, #00bcd4, #009688);
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-top: 80px;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('images/about-bg.jpg') center/cover no-repeat;
+  opacity: 0.15;
+}
+
+.about-hero .hero-text {
+  z-index: 2;
+  max-width: 700px;
+  animation: fadeSlideUp 1s ease-out;
+}
+
+.about-hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  color: #f1f1f1;
+}
+
+/* Main About Section */
+.about-section {
+  padding: 100px 10%;
+  background-color: #f5f7fa;
+  color: #222;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.profile-pic {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  max-width: 600px;
+  animation: fadeSlideUp 1s ease-out;
+}
+
+.about-text h3 {
+  color: #009688;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.interests {
+  list-style: none;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.interests li {
+  margin: 0.3rem 0;
+}
+
+/* Skill Bars */
+.skills {
+  margin-top: 1rem;
+}
+
+.skill {
+  margin-bottom: 0.8rem;
+}
+
+.skill span {
+  font-weight: 500;
+}
+
+.bar {
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 4px;
+}
+
+.fill {
+  display: block;
+  height: 10px;
+  width: 0;
+  background: linear-gradient(90deg, #00bcd4, #009688);
+  border-radius: 20px;
+  transition: width 1.2s ease-in-out, background 0.3s ease;
+}
+
+.reveal .fill {
+  width: var(--level);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero h2 {
+    font-size: 2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+}
+/* --------------------
+   Portfolio Page - Carousel
+-------------------- */
+
+.portfolio-hero {
+  background: linear-gradient(to right, #00bcd4, #009688);
+  position: relative;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-top: 60px;
+}
+
+.portfolio-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('images/portfolio-bg.jpg') center/cover no-repeat;
+  opacity: 0.15;
+}
+
+.portfolio-hero .hero-text {
+  z-index: 1;
+  max-width: 700px;
+  animation: fadeSlideUp 1s ease-out;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+  padding: 80px 10%;
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #009688;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #00bcd4;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
+
+/* Carousel */
+.carousel-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.carousel-track-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-slide {
+  min-width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 400px; /* moderate size */
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 150, 136, 0.7);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,150,136,1);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    width: 90%;
+  }
+  .carousel-slide img {
+    height: 250px;
+  }
+}
+/* --------------------
+   Contact Page
+-------------------- */
+
+.contact-hero {
+  background: linear-gradient(to right, #00bcd4, #009688);
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-top: 80px;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('images/contact-bg.jpg') center/cover no-repeat;
+  opacity: 0.15;
+}
+
+.contact-hero .hero-text {
+  z-index: 1;
+  max-width: 700px;
+  animation: fadeSlideUp 1s ease-out;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 100px 10%;
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 3rem;
+}
+
+.contact-form {
+  flex: 1 1 350px;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00bcd4;
+  outline: none;
+}
+
+.btn-submit {
+  background: #00bcd4;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn-submit:hover {
+  background: #00796b;
+}
+
+/* Contact Info */
+.contact-info {
+  flex: 1 1 300px;
+  text-align: left;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contact-info h4 {
+  color: #009688;
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  margin-top: 1rem;
+}
+
+.social-icons a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  filter: grayscale(100%);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover img {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
