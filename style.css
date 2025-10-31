@@ -79,36 +79,6 @@ nav {
 .nav-links a.active::after {
   width: 100%;
 }
-/* Hide hamburger on desktop */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-}
-
-/* ---- MOBILE STYLES ---- */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-  .nav-links {
-    display: none; /* hidden by default */
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #111;
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
-    border-radius: 10px;
-  }
-
-  .nav-links.active {
-    display: flex; /* shown when toggled */
-  }
-}
-
 /* --------------------
    Hero Section
 -------------------- */
@@ -635,4 +605,5 @@ footer {
     align-items: center;
   }
 }
+
 
