@@ -153,4 +153,11 @@ if (fadeInItems.length > 0) {
 
   window.addEventListener("scroll", revealItems);
   window.addEventListener("load", revealItems);
+
+}
+const hamburger = document.querySelector('.hamburger');
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+  hamburger.innerText = navLinks.classList.contains('active') ? '✖' : '☰';
 }
